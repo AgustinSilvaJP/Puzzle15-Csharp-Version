@@ -40,10 +40,7 @@ public class Game
         if (_gameState[1, 3] > _gameState[2, 0]) return false;
         if (_gameState[2, 3] > _gameState[3, 0]) return false;
 
-        for (int x = 0; x < 4; x++)
-        {
-            for (int y = 0; y < 3; y++) if (_gameState[x, y] > _gameState[x, y + 1]) return false;
-        }
+        for (int x = 0; x < 4; x++) for (int y = 0; y < 3; y++) if (_gameState[x, y] > _gameState[x, y + 1]) return false;
         return true;
     }
     public void Move(ConsoleKey key1)

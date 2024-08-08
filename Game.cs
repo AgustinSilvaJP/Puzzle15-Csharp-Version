@@ -1,18 +1,16 @@
-﻿
-public class Game
+﻿public class Game
 {
-    private int[,] _gameState;
-    private int _cantMoves;
-    private int _score;
-    private int[] _emptyPos;
-    private int[] _adyL;
-    private int[] _adyR;
-    private int[] _adyUp;
-    private int[] _adyDown;
-
-    public Game()
+    private int[,] _gameState; //contiene el array[,] principal
+    private int _cantMoves; //cant de mov
+    private int _score; //puntuacion
+    private int[] _emptyPos; //pos. del cas. de mov.
+    private int[] _adyL; //ady L. de emptyPos
+    private int[] _adyR;// "" R.  ""   ""
+    private int[] _adyUp;//"" Up  ""   ""
+    private int[] _adyDown;//"" Down "" ""
+    public Game()//constructor
     {
-        _gameState = Uwu.ArrayTo4x4Matrix(Uwu.FileLineToIntArray(Uwu.RandomFileLine()));
+        _gameState = Uwu.ArrayTo4x4Matrix(Uwu.FileLineToIntArray(Uwu.RandomFileLine()));//se genera una matriz de un array[] que a su //vez es generado a partir de un string de numeros                                                                            
         _cantMoves = 0;
         _score = 0;
         _emptyPos = Uwu.EmptyIndex(_gameState);
@@ -60,8 +58,7 @@ public class Game
             _gameState[_emptyPos[0], _emptyPos[1]] = _gameState[_adyUp[0], _adyUp[1]];
             _gameState[_adyUp[0], _adyUp[1]] = 16;
             ActualizePos();
-        }
-        catch (Exception) { }
+        }catch (Exception) { }
     }
     public void MoveUp()
     {
@@ -70,8 +67,7 @@ public class Game
             _gameState[_emptyPos[0], _emptyPos[1]] = _gameState[_adyDown[0], _adyDown[1]];
             _gameState[_adyDown[0], _adyDown[1]] = 16;
             ActualizePos();
-        }
-        catch (Exception) { }
+        }catch (Exception) { }
     }
     public void MoveLeft()
     {
@@ -80,8 +76,7 @@ public class Game
             _gameState[_emptyPos[0], _emptyPos[1]] = _gameState[_adyR[0], _adyR[1]];
             _gameState[_adyR[0], _adyR[1]] = 16;
             ActualizePos();
-        }
-        catch (Exception) { }
+        }catch (Exception) { }
     }
     public void MoveRight()
     {
@@ -90,8 +85,7 @@ public class Game
             _gameState[_emptyPos[0], _emptyPos[1]] = _gameState[_adyL[0], _adyL[1]];
             _gameState[_adyL[0], _adyL[1]] = 16;
             ActualizePos();
-        }
-        catch (Exception) { }
+        }catch (Exception) { }
     }
     public void SetScore(int apuesta)
     {
@@ -129,7 +123,7 @@ public class Game
     }
     public void PrintGameScore() => Console.WriteLine($"║ Score: {_score} ║");
     public void printGameController()
-    {// ^ < > v
+    {
         string asd = _cantMoves.ToString().PadLeft(3);
         Console.WriteLine("           ╔═══╗");
         Console.WriteLine("           ║ ^ ║");
